@@ -298,6 +298,7 @@ functions:
       - http:
           method: get
           path: whatever
+          integration: lambda
           request:
             template:
               text/xhtml: '{ "stage" : "$context.stage" }'
