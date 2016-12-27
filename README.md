@@ -106,6 +106,7 @@ The following are services you can instantly install and use by running `serverl
 
 * [serverless-examples](https://github.com/serverless/examples)
 * [CRUD](https://github.com/pmuens/serverless-crud) - CRUD service, [Scala Port](https://github.com/jahangirmohammed/serverless-crud-scala)
+* [CRUD with S3](https://github.com/tscanlin/serverless-s3-crud) - CRUD service using S3
 * [GraphQL Boilerplate](https://github.com/serverless/serverless-graphql) - GraphQL application Boilerplate service
 * [Authentication](https://github.com/laardee/serverless-authentication-boilerplate) - Authentication boilerplate service
 * [Mailer](https://github.com/eahefnawy/serverless-mailer) - Service for sending emails
@@ -120,6 +121,7 @@ The following are services you can instantly install and use by running `serverl
 * [Boilerplate](https://github.com/eahefnawy/serverless-boilerplate) - Opinionated boilerplate
 * [ES6 + Jest](https://github.com/americansystems/serverless-es6-jest) - ES6 + Jest Boilerplate
 * [PHP](https://github.com/ZeroSharp/serverless-php) - Call a PHP function from your lambda
+* [Slack App](https://github.com/johnagan/serverless-slack-app) - Slack App Boilerplate with OAuth and Bot actions
 
 **Note**: the `serverless install` command will only work on V1.0 or later.
 
