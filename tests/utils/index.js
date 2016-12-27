@@ -1,5 +1,6 @@
 'use strict';
 
+const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
@@ -7,24 +8,28 @@ const BbPromise = require('bluebird');
 const fse = require('fs-extra');
 const execSync = require('child_process').execSync;
 const AWS = require('aws-sdk');
-const Serverless = require('../../lib/Serverless');
 
-const serverless = new Serverless();
-serverless.init();
-const serverlessExec = path.join(serverless.config.serverlessPath, '..', 'bin', 'serverless');
-
+const serverlessExec = path.join(__dirname, '..', '..', 'bin', 'serverless');
+//
 const getTmpDirPath = () => path.join(os.tmpdir(),
   'tmpdirs-serverless', 'serverless', crypto.randomBytes(8).toString('hex'));
 
 const getTmpFilePath = (fileName) => path.join(getTmpDirPath(), fileName);
 
+const replaceTextInFile = (filePath, subString, newSubString) => {
+  const fileContent = fs.readFileSync(filePath).toString();
+  fs.writeFileSync(filePath, fileContent.replace(subString, newSubString));
+};
+
 module.exports = {
   serverlessExec,
   getTmpDirPath,
   getTmpFilePath,
+  replaceTextInFile,
 
   createTestService: (templateName, testServiceDir) => {
-    const serviceName = `service-${(new Date()).getTime().toString()}`;
+    const hrtime = process.hrtime();
+    const serviceName = `test-${hrtime[0]}-${hrtime[1]}`;
     const tmpDir = path.join(os.tmpdir(),
       'tmpdirs-serverless',
       'integration-test-suite',
@@ -40,7 +45,7 @@ module.exports = {
       fse.copySync(testServiceDir, tmpDir, { clobber: true, preserveTimestamps: true });
     }
 
-    execSync(`sed -i.bak s/${templateName}/${serviceName}/g serverless.yml`);
+    replaceTextInFile('serverless.yml', templateName, serviceName);
 
     process.env.TOPIC_1 = `${serviceName}-1`;
     process.env.TOPIC_2 = `${serviceName}-1`;

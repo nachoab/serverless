@@ -79,6 +79,7 @@ The Serverless Framework allows you to deploy auto-scaling, pay-per-execution, e
         <li><a href="./providers/aws/events/s3.md">S3</a></li>
         <li><a href="./providers/aws/events/schedule.md">Schedule</a></li>
         <li><a href="./providers/aws/events/sns.md">SNS</a></li>
+        <li><a href="./providers/aws/events/alexa-skill.md">Alexa Skill</a></li>
       </ul>
     </div>
   </div>
@@ -86,16 +87,13 @@ The Serverless Framework allows you to deploy auto-scaling, pay-per-execution, e
   <div class="docsSection">
     <div class="docsSectionHeader">
       <a href="./providers/aws/examples/">
-      <img src="https://s3-us-west-2.amazonaws.com/assets.site.serverless.com/images/docs_examples_aws4.jpg" alt="Serverless Framework AWS Lambdxxxxa Examples" width="250" draggable="false"/>
+      <img src="https://s3-us-west-2.amazonaws.com/assets.site.serverless.com/images/docs_examples_aws4.jpg" alt="Serverless Framework AWS Lambda Examples" width="250" draggable="false"/>
       </a>
     </div>
     <div>
       <div>
         <ul>
           <li><a href="./providers/aws/examples/hello-world">Hello World</a></li>
-          <li><a href="./providers/aws/examples/cron">Cron</a></li>
-          <li><a href="./providers/aws/examples/using-external-libraries">Using External Libraries</a></li>
-          <li><a href="./providers/aws/examples/web-serving-html">Serving HTML page</a></li>
         </ul>
       </div>
     </div>

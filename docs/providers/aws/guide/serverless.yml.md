@@ -47,7 +47,7 @@ provider:
          Fn::Join:
            - ''
            - - 'arn:aws:s3:::'
-           - Ref: ServerlessDeploymentBucket
+             - Ref: ServerlessDeploymentBucket
   stackPolicy: # Optional CF stack policy. The example below allows updates to all resources except deleting/replacing EC2 instances (use with caution!)
     - Effect: Allow
       Principal: "*"
@@ -105,6 +105,7 @@ functions:
           batchSize: 100
           startingPosition: LATEST
           enabled: false
+      - alexaSkill
 
 # The "Resources" your "Functions" use.  Raw AWS CloudFormation goes in here.
 resources:
@@ -122,4 +123,11 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+  # The "Outputs" that your AWS CloudFormation Stack should produce.  This allows references between services.
+  Outputs:
+    UsersTableArn:
+      Description: The ARN for the User's Table
+      Value:
+        "Fn::GetAtt": [ usersTable, Arn ]
+      Export: ${self:service}:${opt:stage}:UsersTableArn # see Fn::ImportValue to use in other services and http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html for documentation on use.
 ```
