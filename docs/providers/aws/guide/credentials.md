@@ -54,7 +54,7 @@ To let the Serverless Framework access your AWS account, we're going to **create
 
 ### Using AWS Access Keys
 
-You can configure the Serverless Framework to use your AWS **API Key** & **Secret** two ways:
+You can configure the Serverless Framework to use your AWS **API Key** & **Secret** in two ways:
 
 #### Quick Setup
 
@@ -81,7 +81,7 @@ Here's an example how you can configure the `default` AWS profile:
 serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
 
-Take a look at the [`config` CLI reference](../cli-reference/config.md) for more information about credential configuration.
+Take a look at the [`config` CLI reference](../cli-reference/config-credentials.md) for more information about credential configuration.
 
 ##### Setup with the `aws-cli`
 
@@ -95,7 +95,7 @@ Default region name [None]: us-west-2
 Default output format [None]: ENTER
 ```
 
-Credentials are stored in INI format in `~/.aws/credentials`, which you can edit directly if needed. Read more about that file in the [AWS documentation](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files)
+Credentials are stored in INI format in `~/.aws/credentials`, which you can edit directly if needed. You can change the path to the credentials file via the AWS_SHARED_CREDENTIALS_FILE environment variable. Read more about that file in the [AWS documentation](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files)
 
 You can even set up different profiles for different accounts, which can be used by Serverless as well. To specify a default profile to use, you can add a `profile` setting to your `provider` configuration in `serverless.yml`:
 
