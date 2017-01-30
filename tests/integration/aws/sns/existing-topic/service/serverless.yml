@@ -1,4 +1,4 @@
-service: aws-nodejs # NOTE: update this with your service name
+service: aws-nodejs
 
 provider:
   name: aws
@@ -7,7 +7,5 @@ provider:
 functions:
   hello:
     handler: handler.hello
-
-plugins:
-  - one
-  - two
+    events:
+      - sns: ${env:EXISTING_TOPIC_ARN}
